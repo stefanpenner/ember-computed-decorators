@@ -89,7 +89,6 @@ export default Ember.Component.extend({
 });
 ```
 
-
 #### "Real World get/set syntax"
 
 ```javascript
@@ -106,6 +105,23 @@ export default Ember.Component.extend({
     set(value, first, last) {
       // ...
     }
+  }
+});
+```
+
+#### "readOnly"
+
+```javascript
+import Ember from 'ember';
+import computed, { readOnly } from 'ember-computed-decorators';
+
+export default Ember.Component.extend({
+  @computed('first', 'last')
+  @readOnly
+  name(first, last) {
+    return `${first} ${last}`;
+  }
+>>>>>>> read-only
 });
 ```
 
