@@ -71,3 +71,30 @@ export function readOnly(target, name, descriptor) {
 
   return descriptor;
 }
+
+function macroAlias(fn) {
+  return function(...params) {
+    return function(target, propertyName, descriptor) {
+      descriptor.value = fn(...params);
+      return descriptor;
+    };
+  };
+}
+
+export var alias = macroAlias(Ember.computed.alias);
+export var empty = macroAlias(Ember.computed.empty);
+export var notEmpty = macroAlias(Ember.computed.notEmpty);
+export var none = macroAlias(Ember.computed.none);
+export var not = macroAlias(Ember.computed.not);
+export var bool = macroAlias(Ember.computed.bool);
+export var match = macroAlias(Ember.computed.match);
+export var equal = macroAlias(Ember.computed.equal);
+export var gt = macroAlias(Ember.computed.gt);
+export var gte = macroAlias(Ember.computed.gte);
+export var lt = macroAlias(Ember.computed.lt);
+export var lte = macroAlias(Ember.computed.lte);
+export var and = macroAlias(Ember.computed.and);
+export var or = macroAlias(Ember.computed.or);
+export var any = macroAlias(Ember.computed.any);
+export var collect = macroAlias(Ember.computed.collect);
+export var oneWay = macroAlias(Ember.computed.oneWay);
