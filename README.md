@@ -121,7 +121,6 @@ export default Ember.Component.extend({
   name(first, last) {
     return `${first} ${last}`;
   }
->>>>>>> read-only
 });
 ```
 
